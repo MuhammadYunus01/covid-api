@@ -15,7 +15,6 @@ class Covid{
         return new Promise((resolve, reject)=>{
             const sql = 'SELECT * FROM covids WHERE id = ?';
             db.query(sql, id,(err, result)=>{
-                console.log(result);
                 resolve(result[0]);
             })
         })
@@ -25,7 +24,6 @@ class Covid{
         return new Promise((resolve, reject)=> {
             const sql = 'SELECT * FROM covids WHERE name = ?';
             db.query(sql, name, (err, result)=> {
-                console.log(result);
                 resolve(result);
             })
         })
@@ -35,7 +33,6 @@ class Covid{
         return new Promise((resolve, reject)=> {
             const sql = 'SELECT * FROM covids WHERE status = ?';
             db.query(sql, status, (err, result)=> {
-                console.log(result);
                 resolve(result);
             })
         })
@@ -45,7 +42,6 @@ class Covid{
         return new Promise((resolve, reject)=> {
             const sql = 'SELECT * FROM covids WHERE status = "Positive"';
             db.query(sql, (err, result)=> {
-                console.log(result);
                 resolve(result);
             })
         })
@@ -55,7 +51,6 @@ class Covid{
         return new Promise((resolve, reject)=> {
             const sql = 'SELECT * FROM covids WHERE status = "Recovered"';
             db.query(sql, (err, result)=> {
-                console.log(result);
                 resolve(result);
             })
         })
@@ -65,7 +60,6 @@ class Covid{
         return new Promise((resolve, reject)=> {
             const sql = 'SELECT * FROM covids WHERE status = "Dead"';
             db.query(sql, (err, result)=> {
-                console.log(result);
                 resolve(result);
             })
         })
@@ -86,7 +80,6 @@ class Covid{
         return new Promise((resolve,reject)=> {
             const sql = "UPDATE covids SET ? WHERE id = ?";
             db.query(sql, [data, id], (err, result)=>{
-                console.log(result);
                 resolve(result);
             })
         })
@@ -96,7 +89,6 @@ class Covid{
         return new Promise((resolve,reject)=> {
             const sql = "DELETE FROM covids WHERE id = ?";
             db.query(sql, id, (err, result)=> {
-                console.log(result);
                 resolve(result);
             })
         })

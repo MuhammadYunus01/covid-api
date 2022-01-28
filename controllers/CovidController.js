@@ -3,11 +3,11 @@ const Covid = require("../models/Covid");
 
 class CovidController {
     async index(req, res){
-        const dbData = await Covid.all();
-        if (dbData) {
+        const datacovid = await Covid.all();
+        if (datacovid) {
             const data = {
                 message : "Menampilkan semua data pasien",
-                resource : dbData
+                resource : datacovid
             }
             return res.status(200).json(data);
         }
@@ -19,11 +19,11 @@ class CovidController {
 
     async show(req, res){
         const {id} = req.params;
-        const dbData  = await Covid.find(id);
-        if (dbData){
+        const datacovid  = await Covid.find(id);
+        if (datacovid){
             const data = {
                 message : "Menampilkan data pasien",
-                resource : dbData
+                resource : datacovid
             }
             return res.status(200).json(data);;
         }
@@ -35,11 +35,11 @@ class CovidController {
 
     async search(req, res){
         const {name} = req.params;
-        const dbData = await Covid.search(name);
-        if (dbData){
+        const datacovid = await Covid.search(name);
+        if (datacovid){
             const data = {
                 message : "Menampilkan data pasien",
-                resource : dbData
+                resource : datacovid
             }
             return res.status(200).json(data);;
         }
@@ -51,11 +51,11 @@ class CovidController {
     }
 
     async positive(req, res){
-        const dbData = await Covid.Positive();
-        if (dbData){
+        const datacovid = await Covid.Positive();
+        if (datacovid){
             const data = {
                 message : "Menampilkan data pasien",
-                data : dbData
+                data : datacovid
             }
             return res.status(200).json(data);;
         }
@@ -66,11 +66,11 @@ class CovidController {
     }
 
     async recovered(req, res){
-        const dbData = await Covid.Recovered();
-        if (dbData){
+        const datacovid = await Covid.Recovered();
+        if (datacovid){
             const data = {
                 message : "Menampilkan data pasien",
-                data : dbData
+                data : datacovid
             }
             return res.status(200).json(data);;
         }
@@ -81,11 +81,11 @@ class CovidController {
     }
 
     async dead(req, res){
-        const dbData = await Covid.Dead();
-        if (dbData){
+        const datacovid = await Covid.Dead();
+        if (datacovid){
             const data = {
                 message : "Menampilkan data pasien",
-                data : dbData
+                data : datacovid
             }
             return res.status(200).json(data);;
         }
@@ -96,19 +96,19 @@ class CovidController {
     }
 
     async store(req, res){
-        const dbData = await Covid.create(req.body);
+        const datacovid = await Covid.create(req.body);
         const data = {
             message : "Menambahkan data pasien baru",
-            data : dbData
+            data : datacovid
         }
         res.status(201).json(data);
     }
 
     async update(req, res){
         const {id} = req.params
-        const dbData = await Covid.find(id)
+        const datacovid = await Covid.find(id)
         
-        if (dbData){
+        if (datacovid){
             await Covid.update(id, req.body);
             const returnData = await Covid.find(id);
             const data = {
@@ -126,9 +126,9 @@ class CovidController {
 
     async destroy(req, res){
         const {id} = req.params;
-        const dbData = await Covid.find(id);
+        const datacovid = await Covid.find(id);
         
-        if (dbData){
+        if (datacovid){
             await Covid.delete(id);
             const data = {
                 message : "Menghapus data berhasil"
